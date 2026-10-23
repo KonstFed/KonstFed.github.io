@@ -1,13 +1,37 @@
-:root { color-scheme: light dark; --fg: #222; --muted: #666; --bg: #fff; --link: #2f7f93; --line: #ddd; }
-@media (prefers-color-scheme: dark) { :root { --fg: #eee; --muted: #aaa; --bg: #1e1f22; --link: #6cc3db; --line: #444; } }
+:root { color-scheme: light dark; --fg: #1f2328; --muted: #5f6670; --bg: #fff; --soft: #f4f6f8; --link: #1f6f86; --line: #dde1e5; --accent: #b4321f; }
+@media (prefers-color-scheme: dark) { :root { --fg: #e8eaed; --muted: #a2a8b0; --bg: #17181b; --soft: #222428; --link: #6cc3db; --line: #3a3d42; --accent: #e0503a; } }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-main { max-width: 640px; margin: 0 auto; padding: 12vh 20px 48px; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 48px 16px 40px; }
 h1 { margin: 0 0 0.2em; font-size: 2em; line-height: 1.2; }
-.sub { margin: 0 0 1.5em; color: var(--muted); }
-a { color: var(--link); }
-.links { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.5em 0; padding: 0; list-style: none; }
-.links a { display: inline-block; padding: 8px 16px; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; font-weight: 600; }
-.links a:hover { border-color: var(--link); }
-.badge { display: inline-block; padding: 1px 8px; border-radius: 3px; background: #c0392b; color: #fff; font-size: 0.8em; font-weight: 700; vertical-align: middle; }
-.note { margin-top: 2.5em; padding-top: 1em; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9em; }
+h2 { margin: 2.2em 0 0.7em; padding-bottom: 0.25em; border-bottom: 1px solid var(--line); font-size: 1.25em; }
+h3 { margin: 0 0 0.2em; font-size: 1.05em; line-height: 1.35; }
+p { margin: 0 0 0.9em; }
+a { color: var(--link); text-underline-offset: 2px; }
+.sub { margin: 0 0 1.2em; color: var(--muted); }
+.muted { color: var(--muted); }
+.seeking { margin: 1.2em 0; padding: 12px 16px; border-left: 4px solid var(--accent); background: var(--soft); border-radius: 0 6px 6px 0; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.6em 0 1em; padding: 0; list-style: none; }
+.links a { display: inline-block; padding: 7px 14px; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.92em; }
+.links a:hover, .links a:focus { border-color: var(--link); }
+.links .cta { background: var(--link); border-color: var(--link); color: var(--bg); }
+.badge { display: inline-block; padding: 0 7px; border-radius: 3px; background: var(--accent); color: #fff; font-size: 0.78em; font-weight: 700; vertical-align: 1px; }
+ul.plain { margin: 0; padding: 0; list-style: none; }
+ul.plain > li { margin: 0 0 1em; }
+ul.plain p { margin: 0; }
+.news li { display: grid; grid-template-columns: 5.5em 1fr; gap: 8px; margin-bottom: 0.5em; }
+.news .date { color: var(--muted); font-variant-numeric: tabular-nums; }
+.pub { margin: 0 0 1.6em; }
+.pub p { margin: 0 0 0.2em; }
+.row { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: 12px; }
+.row .when { color: var(--muted); white-space: nowrap; }
+figure { margin: 1.5em 0; text-align: center; }
+figure img { width: 100%; max-width: 360px; height: auto; border: 1px solid var(--line); border-radius: 6px; }
+figcaption { margin-top: 0.5em; color: var(--muted); font-size: 0.88em; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95em; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+pre { overflow-x: auto; padding: 12px; background: var(--soft); border-radius: 6px; font-size: 0.8em; line-height: 1.45; }
+footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88em; }
+@media (max-width: 480px) { body { font-size: 16px; } main { padding-top: 28px; } h1 { font-size: 1.7em; } .news li { grid-template-columns: 1fr; gap: 0; } }

@@ -7,18 +7,76 @@
 <meta name="description" content="DiffIE recasts Open Information Extraction as discrete diffusion over per-token role tags. EMNLP 2026, oral.">
 <link rel="canonical" href="https://konstfed.github.io/diffie/">
 <link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-180x180.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DiffIE: Diffusion-based Open Information Extraction">
+<meta property="og:description" content="Open Information Extraction as discrete diffusion over per-token role tags. EMNLP 2026, oral.">
+<meta property="og:url" content="https://konstfed.github.io/diffie/">
+<meta property="og:image" content="https://konstfed.github.io/images/diffie-teaser.png">
+<meta name="citation_title" content="DiffIE: Diffusion-based Open Information Extraction">
+<meta name="citation_author" content="Fedorov, Konstantin">
+<meta name="citation_author" content="Malykh, Valentin">
+<meta name="citation_publication_date" content="2026">
+<meta name="citation_conference_title" content="Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing">
+<meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.02315">
 </head>
 <body>
 <main>
+  <p class="muted"><a href="/">← Konstantin Fedorov</a></p>
   <h1>DiffIE: Diffusion-based Open Information Extraction</h1>
-  <p class="sub"><a href="/">Konstantin Fedorov</a>, Valentin Malykh · EMNLP 2026 <span class="badge">Oral</span></p>
-  <p>One sentence usually states several facts. DiffIE treats Open Information Extraction as discrete diffusion over per-token role tags: many independent reverse-diffusion trajectories produce candidate triplets, which are clustered into the final set. The number of extractions is chosen at inference time, not fixed in training.</p>
+  <p class="sub"><a href="/">Konstantin Fedorov</a>, Valentin Malykh · EMNLP 2026, main conference <span class="badge">Oral</span></p>
+
   <ul class="links">
-    <li><a href="https://arxiv.org/abs/2609.02315">Paper (arXiv)</a></li>
+    <li><a class="cta" href="https://arxiv.org/abs/2609.02315">Paper (arXiv)</a></li>
     <li><a href="https://arxiv.org/pdf/2609.02315">PDF</a></li>
-    <li><a href="https://github.com/KonstFed/DiffIE">Code</a></li>
+    <li><a href="https://github.com/KonstFed/DiffIE">Code &amp; checkpoints</a></li>
+    <li><a href="/files/DiffIE_EMNLP2026_slides.pdf">Slides</a></li>
+    <li><a href="#bibtex">BibTeX</a></li>
   </ul>
-  <p class="note">A full project page is on its way. Contact: <a href="mailto:konstfed12@gmail.com">konstfed12@gmail.com</a></p>
+
+  <h2>In one paragraph</h2>
+  <p>A single sentence usually states several facts, so Open Information Extraction (OpenIE) has to return a <em>set</em> of (subject, relation, object) triplets. Autoregressive extractors are flexible but slow and repetitive; fixed-slot extractors are fast but lock the number of extractions at training time. DiffIE uses the randomness of discrete diffusion as the extraction mechanism itself. Each token gets one of four role tags (background, subject, relation, object). At inference we run <em>n</em> independent reverse-diffusion trajectories over these tags, all conditioned on one encoding of the sentence, and cluster the resulting candidate triplets. Both the number of trajectories and the number of returned triplets are chosen at inference time.</p>
+
+  <figure>
+    <img src="/images/diffie-teaser.webp" width="530" height="1265" loading="lazy" decoding="async" alt="DiffIE inference: encode the sentence once, sample n reverse-diffusion trajectories over role tags, build candidate triplets, aggregate them into the final set.">
+    <figcaption>Encode once, sample many denoising trajectories, aggregate the triplets.</figcaption>
+  </figure>
+
+  <h2>Main findings</h2>
+  <ul>
+    <li><strong>Results.</strong> Best reported CaRB (1-1) F1 and AUC, best BenchIE F1, and the best average among systems that report all four benchmarks. Not best everywhere: it trails on standard CaRB and WiRe57.</li>
+    <li><strong>Uniform beats absorbing noise.</strong> With only four tags, uniform-noise diffusion (D3PM) outperforms masked diffusion (MDLM) by 2–3 F1.</li>
+    <li><strong>The gain comes from diffusion.</strong> A matched stochastic tagger with the same encoder, sampling and clustering does not reproduce the results.</li>
+    <li><strong>Compute is a dial.</strong> Going from 16 to 512 samples adds about 3 F1 with the same weights, no retraining.</li>
+  </ul>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Benchmark</th><th>DiffIE</th><th>Strongest prior</th></tr></thead>
+    <tbody>
+      <tr><td>CaRB (1-1) F1</td><td><strong>51.9</strong></td><td>51.5</td></tr>
+      <tr><td>CaRB (1-1) AUC</td><td><strong>34.5</strong></td><td>33.6</td></tr>
+      <tr><td>BenchIE F1</td><td><strong>34.3</strong></td><td>34.0 (ClausIE)</td></tr>
+      <tr><td>CaRB F1</td><td>52.2</td><td><strong>56.3</strong> (DualOIE)</td></tr>
+      <tr><td>WiRe57 F1</td><td>36.1</td><td><strong>40.0</strong> (OpenIE6)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 id="bibtex">BibTeX</h2>
+<pre>@inproceedings{fedorov2026diffie,
+  title     = {DiffIE: Diffusion-based Open Information Extraction},
+  author    = {Fedorov, Konstantin and Malykh, Valentin},
+  booktitle = {Proceedings of the 2026 Conference on Empirical
+               Methods in Natural Language Processing},
+  year      = {2026}
+}</pre>
+
+  <footer>
+    Questions or PhD opportunities: <a href="mailto:konstfed12@gmail.com">konstfed12@gmail.com</a> · <a href="/">Homepage</a>
+  </footer>
 </main>
 </body>
 </html>

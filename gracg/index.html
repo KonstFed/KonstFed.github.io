@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRACG: Graph Retrieval Augmented Code Generation</title>
+<meta name="description" content="Graph-augmented retrieval for repository-level code generation, using a heterogeneous repository graph built from syntax trees. MAS-GAIN Workshop, ASEW 2025, oral.">
+<link rel="canonical" href="https://konstfed.github.io/gracg/">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-180x180.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GRACG: Graph Retrieval Augmented Code Generation">
+<meta property="og:url" content="https://konstfed.github.io/gracg/">
+<meta property="og:image" content="https://konstfed.github.io/images/og.png">
+<meta name="citation_title" content="GRACG: Graph Retrieval Augmented Code Generation">
+<meta name="citation_author" content="Fedorov, Konstantin">
+<meta name="citation_author" content="Zarubin, Boris">
+<meta name="citation_author" content="Ivanov, Vladimir">
+<meta name="citation_publication_date" content="2025">
+<meta name="citation_conference_title" content="2025 40th IEEE/ACM International Conference on Automated Software Engineering Workshops (ASEW)">
+<meta name="citation_doi" content="10.1109/ASEW67777.2025.00060">
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/">← Konstantin Fedorov</a></p>
+  <h1>GRACG: Graph Retrieval Augmented Code Generation</h1>
+  <p class="sub"><a href="/">Konstantin Fedorov</a>, Boris Zarubin, Vladimir Ivanov · MAS-GAIN Workshop, ASEW 2025 <span class="badge">Oral</span></p>
+
+  <ul class="links">
+    <li><a class="cta" href="https://doi.org/10.1109/ASEW67777.2025.00060">Paper (DOI)</a></li>
+    <li><a href="https://github.com/KonstFed/GRAGC">Code</a></li>
+    <li><a href="#bibtex">BibTeX</a></li>
+  </ul>
+
+  <h2>In one paragraph</h2>
+  <p>Code models that see only one file miss cross-file dependencies, and a whole repository does not fit in the context window. GRACG retrieves context using the structure of the repository: it builds a heterogeneous graph from the syntax trees of the code (files, classes, functions and the relations between them), learns node representations with GraphSAGE, and uses them to find the code a generation request depends on.</p>
+
+  <h2>Main findings</h2>
+  <ul>
+    <li>Structure-aware retrieval improves retrieval metrics by 2–3 points over a dense UniXcoder baseline on RepoBench and on tasks derived from DevEval.</li>
+    <li>We convert DevEval into a Dockerized, EvoCodeBench-style benchmark, so generated repository-level code is evaluated by running it.</li>
+  </ul>
+  <p>This paper extends my bachelor's thesis at Innopolis University.</p>
+
+  <h2 id="bibtex">BibTeX</h2>
+<pre>@inproceedings{fedorov2025gracg,
+  title     = {GRACG: Graph Retrieval Augmented Code Generation},
+  author    = {Fedorov, Konstantin and Zarubin, Boris
+               and Ivanov, Vladimir},
+  booktitle = {2025 40th IEEE/ACM International Conference on
+               Automated Software Engineering Workshops (ASEW)},
+  year      = {2025},
+  doi       = {10.1109/ASEW67777.2025.00060}
+}</pre>
+
+  <footer>
+    <a href="mailto:konstfed12@gmail.com">konstfed12@gmail.com</a> · <a href="/">Homepage</a>
+  </footer>
+</main>
+</body>
+</html>
