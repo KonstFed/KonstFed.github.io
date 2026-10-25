@@ -7,7 +7,7 @@ Personal site of Konstantin Fedorov. Plain HTML and one stylesheet, no build ste
 | Home page (about, news, publications, talks, CV summary) | `index.html` |
 | Paper pages | `diffie/index.html`, `gracg/index.html` |
 | Styles (light and dark) | `style.css` |
-| CV PDF, slides | `files/` |
+| CV PDF | `files/` |
 
 To add a paper page, copy `gracg/index.html` into a new folder, edit it, link it from `index.html` and add it to `sitemap.xml`.
 
