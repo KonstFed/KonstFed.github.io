@@ -9,6 +9,9 @@ h2 { margin: 2.2em 0 0.7em; padding-bottom: 0.25em; border-bottom: 1px solid var
 h3 { margin: 0 0 0.2em; font-size: 1.05em; line-height: 1.35; }
 p { margin: 0 0 0.9em; }
 a { color: var(--link); text-underline-offset: 2px; }
+.hero { display: flex; align-items: center; gap: 20px; }
+.hero .sub { margin: 0; }
+.avatar { flex: none; width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
 .sub { margin: 0 0 1.2em; color: var(--muted); }
 .muted { color: var(--muted); }
 .seeking { margin: 1.2em 0; padding: 12px 16px; border-left: 4px solid var(--accent); background: var(--soft); border-radius: 0 6px 6px 0; }
@@ -34,4 +37,4 @@ table { border-collapse: collapse; width: 100%; font-size: 0.95em; font-variant-
 th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: left; }
 pre { overflow-x: auto; padding: 12px; background: var(--soft); border-radius: 6px; font-size: 0.8em; line-height: 1.45; }
 footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88em; }
-@media (max-width: 480px) { body { font-size: 16px; } main { padding-top: 28px; } h1 { font-size: 1.7em; } .news li { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 480px) { body { font-size: 16px; } main { padding-top: 28px; } h1 { font-size: 1.6em; } .hero { gap: 14px; } .avatar { width: 84px; height: 84px; } .news li { grid-template-columns: 1fr; gap: 0; } }
